@@ -52,14 +52,8 @@ public class UserInput : MonoBehaviour
         aimSmooth = Vector2.Lerp(aimSmooth, aimInput, Time.deltaTime * smoothSpeed);
     }
 
-    private void OnEnable()
-    {
-        controls.Enable();
-    }
-    private void OnDisable()
-    {
-        controls.Disable();
-    }
+    private void OnEnable() => controls.Enable();
+    private void OnDisable() => controls.Disable();
     public Vector2 GetSmoothMove() => moveSmooth;
     public Vector2 GetSmoothAim() => aimSmooth;
 }

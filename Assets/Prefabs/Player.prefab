@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 3549610522064604932}
   - component: {fileID: 9004725091350123304}
   - component: {fileID: 6152268859364578345}
-  - component: {fileID: 3495891093840937606}
+  - component: {fileID: -1112755420242532610}
   - component: {fileID: 6455210354738915930}
+  - component: {fileID: 3495891093840937606}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -195,6 +196,33 @@ MonoBehaviour:
   bulletPrefab: {fileID: 2833259679102317911, guid: fcd403ee588d2cd4b90016d1be29b166, type: 3}
   firePoint: {fileID: 3836392127890867863}
   bulletSpeed: 10
+--- !u!114 &-1112755420242532610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5445452000246194261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58f705e3384c3e1409b02ba9f9f45d5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 7
+--- !u!114 &6455210354738915930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5445452000246194261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01ffbcc3aca4e4c4eb31c537d89ab5b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 6636945676503182289}
+  weapon: {fileID: 3836392127890867863}
 --- !u!114 &3495891093840937606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,20 +253,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &6455210354738915930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5445452000246194261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01ffbcc3aca4e4c4eb31c537d89ab5b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 6636945676503182289}
-  weapon: {fileID: 3836392127890867863}
 --- !u!1 &9204740456917856430
 GameObject:
   m_ObjectHideFlags: 0
