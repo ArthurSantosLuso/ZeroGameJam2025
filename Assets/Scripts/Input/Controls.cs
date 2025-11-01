@@ -89,74 +89,70 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     ""name"": ""Controls"",
     ""maps"": [
         {
-            ""name"": ""Movement"",
-            ""id"": ""4436c729-d9e1-40b4-bbc3-d71e1ea27122"",
+            ""name"": ""Basics"",
+            ""id"": ""ac636da9-a030-4c60-8d5b-94c7cdaee841"",
             ""actions"": [
                 {
                     ""name"": ""Movement"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""c21347d9-da7b-483d-bf63-1bd2bfa1644a"",
+                    ""id"": ""3cbf224b-aee4-4a05-bce6-017f7f9b122a"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Aim"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""761878df-9026-47e2-a791-343199563e61"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""80349443-e94f-4886-95e9-48eb44860e41"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
-                    ""name"": ""Gamepad"",
-                    ""id"": ""f264c8e2-b2f4-49ef-8c4f-3a1aff684247"",
-                    ""path"": ""2DVector(mode=1)"",
+                    ""name"": """",
+                    ""id"": ""5800bb4d-8607-4800-845a-ebf1043946b2"",
+                    ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Gamepad"",
                     ""action"": ""Movement"",
-                    ""isComposite"": true,
+                    ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""eb72c9f3-ea84-4487-8612-fe56d3fa9116"",
-                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""name"": """",
+                    ""id"": ""3b338d1a-8cdc-48eb-ad16-2398285c83eb"",
+                    ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""Movement"",
+                    ""action"": ""Aim"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""down"",
-                    ""id"": ""3ff0bc34-f136-44f1-9464-429be5c53a12"",
-                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""name"": """",
+                    ""id"": ""1d00391c-2dd3-435c-8f00-bc8643405bdd"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""Movement"",
+                    ""action"": ""Shoot"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""bd586463-a307-471c-a1eb-1e452fc9be8e"",
-                    ""path"": ""<Gamepad>/leftStick/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Gamepad"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""867f1a88-3ef4-4a3f-8015-fea096212e5d"",
-                    ""path"": ""<Gamepad>/leftStick/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Gamepad"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -169,14 +165,16 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         }
     ]
 }");
-        // Movement
-        m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
-        m_Movement_Movement = m_Movement.FindAction("Movement", throwIfNotFound: true);
+        // Basics
+        m_Basics = asset.FindActionMap("Basics", throwIfNotFound: true);
+        m_Basics_Movement = m_Basics.FindAction("Movement", throwIfNotFound: true);
+        m_Basics_Aim = m_Basics.FindAction("Aim", throwIfNotFound: true);
+        m_Basics_Shoot = m_Basics.FindAction("Shoot", throwIfNotFound: true);
     }
 
     ~@Controls()
     {
-        UnityEngine.Debug.Assert(!m_Movement.enabled, "This will cause a leak and performance issues, Controls.Movement.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Basics.enabled, "This will cause a leak and performance issues, Controls.Basics.Disable() has not been called.");
     }
 
     /// <summary>
@@ -249,29 +247,39 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Movement
-    private readonly InputActionMap m_Movement;
-    private List<IMovementActions> m_MovementActionsCallbackInterfaces = new List<IMovementActions>();
-    private readonly InputAction m_Movement_Movement;
+    // Basics
+    private readonly InputActionMap m_Basics;
+    private List<IBasicsActions> m_BasicsActionsCallbackInterfaces = new List<IBasicsActions>();
+    private readonly InputAction m_Basics_Movement;
+    private readonly InputAction m_Basics_Aim;
+    private readonly InputAction m_Basics_Shoot;
     /// <summary>
-    /// Provides access to input actions defined in input action map "Movement".
+    /// Provides access to input actions defined in input action map "Basics".
     /// </summary>
-    public struct MovementActions
+    public struct BasicsActions
     {
         private @Controls m_Wrapper;
 
         /// <summary>
         /// Construct a new instance of the input action map wrapper class.
         /// </summary>
-        public MovementActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public BasicsActions(@Controls wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "Movement/Movement".
+        /// Provides access to the underlying input action "Basics/Movement".
         /// </summary>
-        public InputAction @Movement => m_Wrapper.m_Movement_Movement;
+        public InputAction @Movement => m_Wrapper.m_Basics_Movement;
+        /// <summary>
+        /// Provides access to the underlying input action "Basics/Aim".
+        /// </summary>
+        public InputAction @Aim => m_Wrapper.m_Basics_Aim;
+        /// <summary>
+        /// Provides access to the underlying input action "Basics/Shoot".
+        /// </summary>
+        public InputAction @Shoot => m_Wrapper.m_Basics_Shoot;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
-        public InputActionMap Get() { return m_Wrapper.m_Movement; }
+        public InputActionMap Get() { return m_Wrapper.m_Basics; }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
         public void Enable() { Get().Enable(); }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
@@ -279,9 +287,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
         public bool enabled => Get().enabled;
         /// <summary>
-        /// Implicitly converts an <see ref="MovementActions" /> to an <see ref="InputActionMap" /> instance.
+        /// Implicitly converts an <see ref="BasicsActions" /> to an <see ref="InputActionMap" /> instance.
         /// </summary>
-        public static implicit operator InputActionMap(MovementActions set) { return set.Get(); }
+        public static implicit operator InputActionMap(BasicsActions set) { return set.Get(); }
         /// <summary>
         /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
         /// </summary>
@@ -289,14 +297,20 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
         /// </remarks>
-        /// <seealso cref="MovementActions" />
-        public void AddCallbacks(IMovementActions instance)
+        /// <seealso cref="BasicsActions" />
+        public void AddCallbacks(IBasicsActions instance)
         {
-            if (instance == null || m_Wrapper.m_MovementActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_MovementActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_BasicsActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_BasicsActionsCallbackInterfaces.Add(instance);
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
+            @Aim.started += instance.OnAim;
+            @Aim.performed += instance.OnAim;
+            @Aim.canceled += instance.OnAim;
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
         }
 
         /// <summary>
@@ -305,21 +319,27 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <remarks>
         /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
         /// </remarks>
-        /// <seealso cref="MovementActions" />
-        private void UnregisterCallbacks(IMovementActions instance)
+        /// <seealso cref="BasicsActions" />
+        private void UnregisterCallbacks(IBasicsActions instance)
         {
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
+            @Aim.started -= instance.OnAim;
+            @Aim.performed -= instance.OnAim;
+            @Aim.canceled -= instance.OnAim;
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
         }
 
         /// <summary>
-        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="MovementActions.UnregisterCallbacks(IMovementActions)" />.
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="BasicsActions.UnregisterCallbacks(IBasicsActions)" />.
         /// </summary>
-        /// <seealso cref="MovementActions.UnregisterCallbacks(IMovementActions)" />
-        public void RemoveCallbacks(IMovementActions instance)
+        /// <seealso cref="BasicsActions.UnregisterCallbacks(IBasicsActions)" />
+        public void RemoveCallbacks(IBasicsActions instance)
         {
-            if (m_Wrapper.m_MovementActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_BasicsActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
@@ -329,21 +349,21 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
         /// </remarks>
-        /// <seealso cref="MovementActions.AddCallbacks(IMovementActions)" />
-        /// <seealso cref="MovementActions.RemoveCallbacks(IMovementActions)" />
-        /// <seealso cref="MovementActions.UnregisterCallbacks(IMovementActions)" />
-        public void SetCallbacks(IMovementActions instance)
+        /// <seealso cref="BasicsActions.AddCallbacks(IBasicsActions)" />
+        /// <seealso cref="BasicsActions.RemoveCallbacks(IBasicsActions)" />
+        /// <seealso cref="BasicsActions.UnregisterCallbacks(IBasicsActions)" />
+        public void SetCallbacks(IBasicsActions instance)
         {
-            foreach (var item in m_Wrapper.m_MovementActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_BasicsActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_MovementActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_BasicsActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
     /// <summary>
-    /// Provides a new <see cref="MovementActions" /> instance referencing this action map.
+    /// Provides a new <see cref="BasicsActions" /> instance referencing this action map.
     /// </summary>
-    public MovementActions @Movement => new MovementActions(this);
+    public BasicsActions @Basics => new BasicsActions(this);
     private int m_GamepadSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
@@ -358,11 +378,11 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         }
     }
     /// <summary>
-    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Movement" which allows adding and removing callbacks.
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Basics" which allows adding and removing callbacks.
     /// </summary>
-    /// <seealso cref="MovementActions.AddCallbacks(IMovementActions)" />
-    /// <seealso cref="MovementActions.RemoveCallbacks(IMovementActions)" />
-    public interface IMovementActions
+    /// <seealso cref="BasicsActions.AddCallbacks(IBasicsActions)" />
+    /// <seealso cref="BasicsActions.RemoveCallbacks(IBasicsActions)" />
+    public interface IBasicsActions
     {
         /// <summary>
         /// Method invoked when associated input action "Movement" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
@@ -371,5 +391,19 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMovement(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Aim" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnAim(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Shoot" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnShoot(InputAction.CallbackContext context);
     }
 }

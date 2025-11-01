@@ -1,18 +1,33 @@
-using System.Runtime.CompilerServices;
-using TreeEditor;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Shooting : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject bullet;
+    public GameObject bulletPrefab;
+    public Transform firePoint;
+    public float bulletSpeed = 10f;
+
+    private bool prevShootPressed = false;
 
     private void Update()
     {
-        if (Gamepad.current.rightTrigger.wasPressedThisFrame)
+        bool current = UserInput.instance.shootPressed;
+
+        // Dispara somente quando passar de false para true
+        if (current && !prevShootPressed)
         {
-            Instantiate(bullet, transform.position, Quaternion.identity);
+            Shoot();
         }
+
+        prevShootPressed = current;
+    }
+
+    void Shoot()
+    {
+        Vector2 aim = UserInput.instance.GetSmoothAim();
+        if (aim.sqrMagnitude < 0.1f) return;
+
+        Vector2 shootDir = aim.normalized;
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+        bullet.GetComponent<BulletBehavior>().SetDirection(shootDir);
     }
 }

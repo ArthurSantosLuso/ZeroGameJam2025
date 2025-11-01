@@ -3,74 +3,70 @@
     "name": "Controls",
     "maps": [
         {
-            "name": "Movement",
-            "id": "4436c729-d9e1-40b4-bbc3-d71e1ea27122",
+            "name": "Basics",
+            "id": "ac636da9-a030-4c60-8d5b-94c7cdaee841",
             "actions": [
                 {
                     "name": "Movement",
                     "type": "PassThrough",
-                    "id": "c21347d9-da7b-483d-bf63-1bd2bfa1644a",
+                    "id": "3cbf224b-aee4-4a05-bce6-017f7f9b122a",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Aim",
+                    "type": "PassThrough",
+                    "id": "761878df-9026-47e2-a791-343199563e61",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Shoot",
+                    "type": "Button",
+                    "id": "80349443-e94f-4886-95e9-48eb44860e41",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
-                    "name": "Gamepad",
-                    "id": "f264c8e2-b2f4-49ef-8c4f-3a1aff684247",
-                    "path": "2DVector(mode=1)",
+                    "name": "",
+                    "id": "5800bb4d-8607-4800-845a-ebf1043946b2",
+                    "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Gamepad",
                     "action": "Movement",
-                    "isComposite": true,
+                    "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "up",
-                    "id": "eb72c9f3-ea84-4487-8612-fe56d3fa9116",
-                    "path": "<Gamepad>/leftStick/up",
+                    "name": "",
+                    "id": "3b338d1a-8cdc-48eb-ad16-2398285c83eb",
+                    "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Movement",
+                    "action": "Aim",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 },
                 {
-                    "name": "down",
-                    "id": "3ff0bc34-f136-44f1-9464-429be5c53a12",
-                    "path": "<Gamepad>/leftStick/down",
+                    "name": "",
+                    "id": "1d00391c-2dd3-435c-8f00-bc8643405bdd",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Movement",
+                    "action": "Shoot",
                     "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "bd586463-a307-471c-a1eb-1e452fc9be8e",
-                    "path": "<Gamepad>/leftStick/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "867f1a88-3ef4-4a3f-8015-fea096212e5d",
-                    "path": "<Gamepad>/leftStick/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 }
             ]
         }
