@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6455210354738915930}
   - component: {fileID: 3495891093840937606}
   - component: {fileID: -7444867299976810244}
+  - component: {fileID: 3656711912163153210}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -125,8 +126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f743d70340c2801409f9506c1d6684a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 2833259679102317911, guid: fcd403ee588d2cd4b90016d1be29b166, type: 3}
-  firePoint: {fileID: 3836392127890867863}
   bulletSpeed: 10
   playerInput: {fileID: 3495891093840937606}
   shootInput:
@@ -137,6 +136,13 @@ MonoBehaviour:
     keyPositive: 275
     keyNegative: 276
     inputAction: Shoot
+  bulletPrefab: {fileID: 2833259679102317911, guid: fcd403ee588d2cd4b90016d1be29b166, type: 3}
+  firePoint: {fileID: 3836392127890867863}
+  canFire: 0
+  timeBetweenFiring: 1
+  maxAmmo: 6
+  currentAmmo: 0
+  reloadTime: 2
 --- !u!114 &-1112755420242532610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,6 +241,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05115f90bec79b949ae8bf5565584a70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite: {fileID: 1749632316395722062}
+--- !u!114 &3656711912163153210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5445452000246194261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c144c3e20f40f214c8be7d1ab1fd0f4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInput: {fileID: 3495891093840937606}
+  changeInput:
+    _type: 3
+    axis: Horizontal
+    buttonPositive: Right
+    buttonNegative: Left
+    keyPositive: 275
+    keyNegative: 276
+    inputAction: ChangeWeapon
 --- !u!1 &7336968802121948417
 GameObject:
   m_ObjectHideFlags: 0

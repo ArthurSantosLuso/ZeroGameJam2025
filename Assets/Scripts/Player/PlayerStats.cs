@@ -13,9 +13,10 @@ public class PlayerStats : MonoBehaviour
     private float invincibleTime = 2f;
     private bool isInvincible = false;
 
+    [SerializeField] private SpriteRenderer sprite;
+
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
         playerCollider = GetComponent<Collider2D>();
 
         GlobalManager.instance.playerCnt += 1;
@@ -84,6 +85,11 @@ public class PlayerStats : MonoBehaviour
     {
         Score = Mathf.Max(0, Score + value);
         Debug.Log($"{Name} score: {Score}");
+    }
+
+    public void SwitchScore(int value)
+    {
+        Score = value;
     }
 
     public bool IsInvincible()

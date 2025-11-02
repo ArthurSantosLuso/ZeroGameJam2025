@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEditor.ShaderGraph;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ public class BulletBehavior : MonoBehaviour
     private float timer;
     private Vector2 shootDirection;
 
-    private PlayerStats owner;
+    private GameObject owner;
 
     void Start()
     {
@@ -27,17 +28,26 @@ public class BulletBehavior : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (hasHit) return;
+
+
         PlayerStats enemy = collision.GetComponent<PlayerStats>();
 
         if (enemy && enemy != owner)
         {
+            if (owner.GetComponent<Shooting>().Weapon == Shooting.WeaponType.Ghost)
+            {
+                GlobalManager.instance.ChangePlayersStats(owner.GetComponent<PlayerStats>(), enemy);
+                DestroyBullet();
+                return;
+            }
+
             bool died;
             hasHit = true;
             enemy.ReduceHealth(out died);
 
             if (died)
             {
-                owner.ChangeScore(2);
+                owner.GetComponent<PlayerStats>().ChangeScore(2);
             }
 
             DestroyBullet();
@@ -63,7 +73,7 @@ public class BulletBehavior : MonoBehaviour
         shootDirection = dir;
     }
 
-    public void SetOwner(PlayerStats shooter)
+    public void SetOwner(GameObject shooter)
     {
         owner = shooter;
     }
