@@ -61,7 +61,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 60
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -99,7 +99,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -127,12 +127,12 @@ TextureImporter:
       name: ui_zerogamejam_scaled_0
       rect:
         serializedVersion: 2
-        x: 495
-        y: 969
-        width: 94
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 1920
+        height: 1080
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -145,187 +145,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: ui_zerogamejam_scaled_1
-      rect:
-        serializedVersion: 2
-        x: 589
-        y: 971
-        width: 94
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3704e6c67331d7280800000000000000
-      internalID: -9044051347926794125
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_zerogamejam_scaled_2
-      rect:
-        serializedVersion: 2
-        x: 683
-        y: 971
-        width: 94
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 57604f6977c043840800000000000000
-      internalID: 5202797177292981877
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_zerogamejam_scaled_3
-      rect:
-        serializedVersion: 2
-        x: 777
-        y: 897
-        width: 368
-        height: 180
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5b19b8f031f0720f0800000000000000
-      internalID: -1141927405975531083
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_zerogamejam_scaled_4
-      rect:
-        serializedVersion: 2
-        x: 1145
-        y: 975
-        width: 94
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ab858a90ba7289b10800000000000000
-      internalID: 1988382851038992570
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_zerogamejam_scaled_5
-      rect:
-        serializedVersion: 2
-        x: 1239
-        y: 975
-        width: 94
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 03dc96f6bf399c600800000000000000
-      internalID: 489084742661688624
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_zerogamejam_scaled_6
-      rect:
-        serializedVersion: 2
-        x: 1333
-        y: 977
-        width: 94
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 64b8c518d4e61a660800000000000000
-      internalID: 7395313342280928070
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_zerogamejam_scaled_7
-      rect:
-        serializedVersion: 2
-        x: 51
-        y: 19
-        width: 122
-        height: 186
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7c817e9cdac8e83e0800000000000000
-      internalID: -2049546102362400569
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_zerogamejam_scaled_8
-      rect:
-        serializedVersion: 2
-        x: 1747
-        y: 19
-        width: 122
-        height: 178
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dc688f7d9a28efbb0800000000000000
-      internalID: -4900335678548048179
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 570f82211d183b64cb5fb7ec11f8bc83
     internalID: 0
     vertices: []
     indices: 
@@ -336,14 +160,6 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       ui_zerogamejam_scaled_0: -7188155738966714296
-      ui_zerogamejam_scaled_1: -9044051347926794125
-      ui_zerogamejam_scaled_2: 5202797177292981877
-      ui_zerogamejam_scaled_3: -1141927405975531083
-      ui_zerogamejam_scaled_4: 1988382851038992570
-      ui_zerogamejam_scaled_5: 489084742661688624
-      ui_zerogamejam_scaled_6: 7395313342280928070
-      ui_zerogamejam_scaled_7: -2049546102362400569
-      ui_zerogamejam_scaled_8: -4900335678548048179
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

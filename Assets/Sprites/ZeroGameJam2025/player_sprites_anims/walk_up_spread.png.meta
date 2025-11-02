@@ -58,7 +58,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -72,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 48
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -96,7 +96,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -124,12 +124,12 @@ TextureImporter:
       name: walk_up_spread_0
       rect:
         serializedVersion: 2
-        x: 33
-        y: 51
-        width: 60
-        height: 77
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -146,12 +146,12 @@ TextureImporter:
       name: walk_up_spread_1
       rect:
         serializedVersion: 2
-        x: 161
-        y: 49
-        width: 60
-        height: 78
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -168,12 +168,12 @@ TextureImporter:
       name: walk_up_spread_2
       rect:
         serializedVersion: 2
-        x: 289
-        y: 49
-        width: 60
-        height: 78
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -190,12 +190,12 @@ TextureImporter:
       name: walk_up_spread_3
       rect:
         serializedVersion: 2
-        x: 417
-        y: 51
-        width: 60
-        height: 77
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -208,99 +208,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: walk_up_spread_4
-      rect:
-        serializedVersion: 2
-        x: 31
-        y: 1
-        width: 58
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d10cb7eb56c6f92a0800000000000000
-      internalID: -6728540134024953827
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walk_up_spread_5
-      rect:
-        serializedVersion: 2
-        x: 159
-        y: 1
-        width: 58
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5d2f32d0bdf19a070800000000000000
-      internalID: 8118054828990788309
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walk_up_spread_6
-      rect:
-        serializedVersion: 2
-        x: 287
-        y: 1
-        width: 58
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b1ea415896f5e2df0800000000000000
-      internalID: -203120026376163813
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walk_up_spread_7
-      rect:
-        serializedVersion: 2
-        x: 415
-        y: 1
-        width: 58
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c37fb4615e6f55fd0800000000000000
-      internalID: -2353703766449195204
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 9df8a26e0aec08642a5684a235626c89
     internalID: 0
     vertices: []
     indices: 
@@ -314,10 +226,6 @@ TextureImporter:
       walk_up_spread_1: -2410341159844569711
       walk_up_spread_2: 7681050828595586135
       walk_up_spread_3: 959004393185520262
-      walk_up_spread_4: -6728540134024953827
-      walk_up_spread_5: 8118054828990788309
-      walk_up_spread_6: -203120026376163813
-      walk_up_spread_7: -2353703766449195204
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
