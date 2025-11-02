@@ -1,19 +1,19 @@
 using UC;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.LowLevel;
-using UnityEngine.Rendering;
-using UnityEngine.UIElements;
 
-public class PlayerInput : MonoBehaviour
+[RequireComponent(typeof(Rigidbody2D))]
+public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
     private float moveSpeed = 7.0f;
     [SerializeField] private UnityEngine.InputSystem.PlayerInput playerInput;
-    [SerializeField, InputPlayer(nameof(playerInput))] private UC.InputControl input;
+    [SerializeField, InputPlayer(nameof(playerInput))] private UC.InputControl moveInput;
+
+    [SerializeField, InputPlayer(nameof(playerInput))] private UC.InputControl dashInput;
 
     private Rigidbody2D rb;
-    private Vector2 moveInput;
+    private Vector2 movement;
 
     [Header("Dash Configurations")]
     [SerializeField]
@@ -27,9 +27,12 @@ public class PlayerInput : MonoBehaviour
     private float dashTimeLeft;
     private bool isDashing = false;
 
+    private Vector2 lastMovementInput = Vector2.zero;
+
     private void Awake()
     {
-        input.playerInput = playerInput;
+        moveInput.playerInput = playerInput;
+        dashInput.playerInput = playerInput;
     }
 
     private void Start()
@@ -39,7 +42,7 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
-        if (UserInput.instance.dashPressed && !isDashing && dashCooldownTimer <= 0.0f) StartDash();
+        if (dashInput.IsDown() && !isDashing && dashCooldownTimer <= 0.0f) StartDash();
 
         if (isDashing)
         {
@@ -47,7 +50,6 @@ public class PlayerInput : MonoBehaviour
 
             if (dashTimeLeft <= 0.0f) EndDash();
         }
-        Debug.Log($"Dash Cooldown: {dashCooldownTimer}");
     }
 
     private void FixedUpdate()
@@ -65,20 +67,22 @@ public class PlayerInput : MonoBehaviour
 
     private void Move()
     {
-        moveInput = input.GetAxis2();
+        movement = UserInput.SmoothMovement(movement, moveInput.GetAxis2(), 100.0f);
 
-        moveInput.Normalize();
+        movement.Normalize();
 
-        rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, moveInput.y * moveSpeed);
+        rb.linearVelocity = new Vector2(movement.x * moveSpeed, movement.y * moveSpeed);
     }
 
     private void Dash()
     {
-        moveInput = input.GetAxis2();
+        lastMovementInput = movement;
 
-        moveInput.Normalize();
+        movement = UserInput.SmoothMovement(lastMovementInput, moveInput.GetAxis2(), 100.0f);
 
-        rb.linearVelocity = new Vector2(moveInput.x * dashSpeed, moveInput.y * dashSpeed);
+        movement.Normalize();
+
+        rb.linearVelocity = new Vector2(movement.x * dashSpeed, movement.y * dashSpeed);
     }
 
 

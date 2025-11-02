@@ -3,18 +3,25 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    public GameObject bulletPrefab;
-    public Transform firePoint;
-    public float bulletSpeed = 10f;
-    private Vector2 aim = Vector2.zero;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private float bulletSpeed = 10f;
     private bool prevShootPressed = false;
 
     [SerializeField] private UnityEngine.InputSystem.PlayerInput playerInput;
     [SerializeField, InputPlayer(nameof(playerInput))] private UC.InputControl shootInput;
 
+
+    private bool canFire;
+
     private void Awake()
     {
         shootInput.playerInput = playerInput;
+    }
+
+    private void Start()
+    {
+        
     }
 
     private void Update()
@@ -22,7 +29,7 @@ public class Shooting : MonoBehaviour
         bool current = shootInput.IsDown();
 
 
-        if (current && !prevShootPressed)
+        if (current && !prevShootPressed && canFire)
         {
             Shoot();
         }
@@ -35,5 +42,6 @@ public class Shooting : MonoBehaviour
         Vector2 shootDir = firePoint.right;
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         bullet.GetComponent<BulletBehavior>().SetDirection(shootDir);
+        bullet.GetComponent<BulletBehavior>().SetOwner(this.GetComponent<PlayerStats>());
     }
 }

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -1112755420242532610}
   - component: {fileID: 6455210354738915930}
   - component: {fileID: 3495891093840937606}
+  - component: {fileID: -7444867299976810244}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -165,7 +166,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &6152268859364578345
 MonoBehaviour:
@@ -191,14 +192,6 @@ MonoBehaviour:
     keyPositive: 275
     keyNegative: 276
     inputAction: Shoot
-  moveInput:
-    _type: 3
-    axis: Horizontal
-    buttonPositive: Right
-    buttonNegative: Left
-    keyPositive: 275
-    keyNegative: 276
-    inputAction: Movement
 --- !u!114 &-1112755420242532610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,6 +278,18 @@ MonoBehaviour:
   m_DefaultActionMap: Basics
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &-7444867299976810244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5445452000246194261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05115f90bec79b949ae8bf5565584a70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9204740456917856430
 GameObject:
   m_ObjectHideFlags: 0

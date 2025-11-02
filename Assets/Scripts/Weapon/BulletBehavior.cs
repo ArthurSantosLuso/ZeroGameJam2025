@@ -13,14 +13,35 @@ public class BulletBehavior : MonoBehaviour
     private float timer;
     private Vector2 shootDirection;
 
+    private PlayerStats owner;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
         rb.linearVelocity = shootDirection.normalized * force;
 
         float rot = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot + 90);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (hasHit) return;
+        PlayerStats enemy = collision.GetComponent<PlayerStats>();
+
+        if (enemy && enemy != owner)
+        {
+            bool died;
+            hasHit = true;
+            enemy.ReduceHealth(out died);
+
+            if (died)
+            {
+                owner.ChangeScore(2);
+            }
+
+            DestroyBullet();
+        }
     }
 
     private void Update()
@@ -37,13 +58,13 @@ public class BulletBehavior : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void IncreaseDamage(int amount)
-    {
-        damage += amount;
-    }
-
     public void SetDirection(Vector2 dir)
     {
         shootDirection = dir;
+    }
+
+    public void SetOwner(PlayerStats shooter)
+    {
+        owner = shooter;
     }
 }
