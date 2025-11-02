@@ -1,31 +1,10 @@
 fileFormatVersion: 2
-guid: 3bdb9c09fc5ef72428878372b926cc6a
+guid: 0548f9cb292ba4744b30245ed90bd594
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5196349701546959589
-    second: walk_down_spread_0
-  - first:
-      213: 177535866896634884
-    second: walk_down_spread_1
-  - first:
-      213: 3691391612668927372
-    second: walk_down_spread_2
-  - first:
-      213: 5247908029222912127
-    second: walk_down_spread_3
-  - first:
-      213: 690654429631677254
-    second: walk_down_spread_4
-  - first:
-      213: -6061093844652972000
-    second: walk_down_spread_5
-  - first:
-      213: -3459102163161856379
-    second: walk_down_spread_6
-  - first:
-      213: 6413608389149676718
-    second: walk_down_spread_7
+      213: -7509265079976603979
+    second: normal_weapon_scaled_2x_pngcrushed_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -121,89 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: walk_down_spread_0
+      name: normal_weapon_scaled_2x_pngcrushed_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 128
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+        width: 10
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b1d16965a7bd2e7b0800000000000000
-      internalID: -5196349701546959589
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walk_down_spread_1
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 128
-        height: 128
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 404d3492eebb67200800000000000000
-      internalID: 177535866896634884
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walk_down_spread_2
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 128
-        height: 128
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c8ddcf72d157a3330800000000000000
-      internalID: 3691391612668927372
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walk_down_spread_3
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 128
-        height: 128
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f7080c74c8054d840800000000000000
-      internalID: 5247908029222912127
+      spriteID: 5becfbf023bb9c790800000000000000
+      internalID: -7509265079976603979
       vertices: []
       indices: 
       edges: []
@@ -212,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 60fcbd64ef3dbfb4ab8f575fb88e80f3
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -222,10 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      walk_down_spread_0: -5196349701546959589
-      walk_down_spread_1: 177535866896634884
-      walk_down_spread_2: 3691391612668927372
-      walk_down_spread_3: 5247908029222912127
+      normal_weapon_scaled_2x_pngcrushed_0: -7509265079976603979
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
