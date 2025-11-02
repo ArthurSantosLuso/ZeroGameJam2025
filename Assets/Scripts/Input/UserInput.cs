@@ -15,6 +15,8 @@ public class UserInput : MonoBehaviour
     public Vector2 aimInput;
     [HideInInspector] 
     public bool shootPressed;
+    [HideInInspector]
+    public bool dashPressed;
 
     private Vector2 moveSmooth;
     private Vector2 aimSmooth;
@@ -44,16 +46,18 @@ public class UserInput : MonoBehaviour
 
         controls.Basics.Shoot.performed += ctx => shootPressed = true;
         controls.Basics.Shoot.canceled += ctx => shootPressed = false;
-    }
 
-    private void Update()
-    {
-        moveSmooth = Vector2.Lerp(moveSmooth, moveInput, Time.deltaTime * smoothSpeed);
-        aimSmooth = Vector2.Lerp(aimSmooth, aimInput, Time.deltaTime * smoothSpeed);
+        controls.Basics.Dash.performed += ctx => dashPressed = true;
+        controls.Basics.Dash.canceled += ctx => dashPressed = false;
     }
 
     private void OnEnable() => controls.Enable();
     private void OnDisable() => controls.Disable();
-    public Vector2 GetSmoothMove() => moveSmooth;
+
+    public static Vector2 SmoothMovement(Vector2 lastInput, Vector2 actualInput, float smoothSpeed)
+    {
+        return Vector2.Lerp(lastInput, actualInput, Time.deltaTime * smoothSpeed);
+    } 
+
     public Vector2 GetSmoothAim() => aimSmooth;
 }

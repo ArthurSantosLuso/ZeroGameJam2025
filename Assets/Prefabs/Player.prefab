@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2003043621951826283}
   - component: {fileID: 4703446058936095583}
   - component: {fileID: 3549610522064604932}
-  - component: {fileID: 9004725091350123304}
   - component: {fileID: 6152268859364578345}
   - component: {fileID: -1112755420242532610}
   - component: {fileID: 6455210354738915930}
@@ -33,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 5445452000246194261}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.68, y: -4.09, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -168,19 +167,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &9004725091350123304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5445452000246194261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89037bb0ce3002541bba8405c95d85ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 7
 --- !u!114 &6152268859364578345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +182,23 @@ MonoBehaviour:
   bulletPrefab: {fileID: 2833259679102317911, guid: fcd403ee588d2cd4b90016d1be29b166, type: 3}
   firePoint: {fileID: 3836392127890867863}
   bulletSpeed: 10
+  playerInput: {fileID: 3495891093840937606}
+  shootInput:
+    _type: 3
+    axis: Horizontal
+    buttonPositive: Right
+    buttonNegative: Left
+    keyPositive: 275
+    keyNegative: 276
+    inputAction: Shoot
+  moveInput:
+    _type: 3
+    axis: Horizontal
+    buttonPositive: Right
+    buttonNegative: Left
+    keyPositive: 275
+    keyNegative: 276
+    inputAction: Movement
 --- !u!114 &-1112755420242532610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,6 +212,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
+  playerInput: {fileID: 3495891093840937606}
+  moveInput:
+    _type: 3
+    axis: Horizontal
+    buttonPositive: Right
+    buttonNegative: Left
+    keyPositive: 275
+    keyNegative: 276
+    inputAction: Movement
+  dashInput:
+    _type: 3
+    axis: Horizontal
+    buttonPositive: Right
+    buttonNegative: Left
+    keyPositive: 275
+    keyNegative: 276
+    inputAction: Dash
+  dashSpeed: 25
+  dashDuration: 0.2
+  dashCooldown: 1.5
 --- !u!114 &6455210354738915930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,6 +246,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 6636945676503182289}
   weapon: {fileID: 3836392127890867863}
+  playerInput: {fileID: 3495891093840937606}
+  aimInput:
+    _type: 3
+    axis: Horizontal
+    buttonPositive: Right
+    buttonNegative: Left
+    keyPositive: 275
+    keyNegative: 276
+    inputAction: Aim
 --- !u!114 &3495891093840937606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,7 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: 0aee78b1c0b99f149964ede6a95a3ff6, type: 3}
   m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -250,7 +282,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: Basics
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &9204740456917856430

@@ -1,3 +1,4 @@
+using UC;
 using UnityEngine;
 
 public class Shooting : MonoBehaviour
@@ -5,14 +6,22 @@ public class Shooting : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
     public float bulletSpeed = 10f;
-
+    private Vector2 aim = Vector2.zero;
     private bool prevShootPressed = false;
+
+    [SerializeField] private UnityEngine.InputSystem.PlayerInput playerInput;
+    [SerializeField, InputPlayer(nameof(playerInput))] private UC.InputControl shootInput;
+
+    private void Awake()
+    {
+        shootInput.playerInput = playerInput;
+    }
 
     private void Update()
     {
-        bool current = UserInput.instance.shootPressed;
+        bool current = shootInput.IsDown();
 
-        // Dispara somente quando passar de false para true
+
         if (current && !prevShootPressed)
         {
             Shoot();
@@ -23,10 +32,7 @@ public class Shooting : MonoBehaviour
 
     void Shoot()
     {
-        Vector2 aim = UserInput.instance.GetSmoothAim();
-        if (aim.sqrMagnitude < 0.1f) return;
-
-        Vector2 shootDir = aim.normalized;
+        Vector2 shootDir = firePoint.right;
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         bullet.GetComponent<BulletBehavior>().SetDirection(shootDir);
     }
